@@ -8,7 +8,7 @@ st.write(
   """Choose the fruits you want in your custom Smoothie!"""
 )
 
-st.title(f":cup_with_straw: Cuztomize Your Smoothie! :cup_with_straw:")
+st.title(f":cup_with_straw: My parents new healthy Dinner! :cup_with_straw:")
 
 name = st.text_input("Name on Smoothie", "")
 
