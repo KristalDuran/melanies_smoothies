@@ -9,7 +9,9 @@ st.write(
 )
 
 st.title(f":cup_with_straw: My parents new healthy Dinner! :cup_with_straw:")
-
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response)
 name = st.text_input("Name on Smoothie", "")
 
 cnx = st.connection("snowflake")
