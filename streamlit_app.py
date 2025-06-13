@@ -1,5 +1,6 @@
 # Import python packages
 import streamlit as st
+import requests
 from snowflake.snowpark.session import Session
 from snowflake.snowpark.functions import col
 
@@ -9,9 +10,7 @@ st.write(
 )
 
 st.title(f":cup_with_straw: My parents new healthy Dinner! :cup_with_straw:")
-import requests
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response)
+
 name = st.text_input("Name on Smoothie", "")
 
 cnx = st.connection("snowflake")
@@ -38,3 +37,6 @@ if len(ingredients_list) <= 5:
     if time_to_insert:
         session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered!', icon="✅")
+
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response.json())
